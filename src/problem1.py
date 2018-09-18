@@ -2,8 +2,8 @@
 Exam 1, problem 1.
 
 Authors: David Mutchler, Vibha Alangar, Valerie Galluzzi, Mark Hays,
-         Amanda Stouder, their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Amanda Stouder, their colleagues and Bryan Wolfe.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -88,8 +88,24 @@ def problem1a(rectangle, square, thickness, window):
       :type thickness: int
       :type window:    rg.RoseWindow
     """
+    rectangle.attach_to(window)
+    square.attach_to(window)
+    point1 = square.center
+    cornertl = rectangle.get_upper_left_corner()
+    cornertr = rectangle.get_upper_right_corner()
+    point2 = rg.Point(cornertl.x + (cornertr.x - cornertl.x)*0.5, cornertl.y)
+    line = rg.Line(point1, point2)
+    line.thickness = thickness
+    line.color = rectangle.outline_color
+    line.attach_to(window)
+    window.render()
+
+
+
+
+
     # --------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.  SEE THE PICTURES in the PDF!
+    # Done: 2. Implement and test this function.  SEE THE PICTURES in the PDF!
     #          Tests have been written for you (above).
     # --------------------------------------------------------------------------
 
@@ -148,8 +164,17 @@ def problem1b(point, win, width, height, color):
       :type height: int
       :type color:  str
     """
+    point1 = rg.Point(point.x - width/2, point.y + height)
+    point2 = rg.Point(point.x + width/2, point.y)
+    ellipse = rg.Ellipse(point1, point2)
+    ellipse.fill_color = color
+    ellipse.attach_to(win)
+    win.render()
+
+
+
     # --------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.  SEE THE PICTURES in the PDF!
+    # Done: 3. Implement and test this function.  SEE THE PICTURES in the PDF!
     #          Tests have been written for you (above).
     # --------------------------------------------------------------------------
 

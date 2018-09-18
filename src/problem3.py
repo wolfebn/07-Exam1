@@ -2,8 +2,8 @@
 Exam 1, problem 3.
 
 Authors: David Mutchler, Vibha Alangar, Valerie Galluzzi, Mark Hays,
-         Amanda Stouder, their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Amanda Stouder, their colleagues and Done.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -87,19 +87,68 @@ def problem3(point, length, delta, window):
       :type delta:   int
       :type window:  rg.RoseWindow
     """
+    point1 = point
+    point2 = rg.Point(point1.x, point1.y + length)
+    line0 = rg.Line(point1, point2)
+    line0.thickness = 3
+    line0.attach_to(window)
+
+
+    pointstart1 = point1
+    pointend1 = rg.Point(pointstart1.x + length, pointstart1.y)
+    line1 = rg.Line(pointstart1, pointend1)
+    line1.color = 'magenta'
+    line1.thickness = 3
+    line1.attach_to(window)
+    window.render()
+    leng = length + 20
+    for k in range(length):
+
+        pointstart2 = rg.Point(pointstart1.x, pointstart1.y + delta)
+        pointend2 = rg.Point(pointstart2.x + leng, pointstart2.y)
+        if pointstart2.y > point2.y:
+            return
+        line2 = rg.Line(pointstart2, pointend2)
+        line2.thickness = 3
+        line2.color = 'cyan'
+        line2.attach_to(window)
+        window.render()
+        leng = leng + 20
+
+        pointstart3 = rg.Point(pointstart2.x, pointstart2.y + delta)
+        pointend3 = rg.Point(pointstart3.x + leng, pointstart3.y)
+        if pointstart3.y > point2.y:
+            return
+        line3 = rg.Line(pointstart3, pointend3)
+        line3.thickness = 3
+        line3.color = 'spring green'
+        line3.attach_to(window)
+        window.render()
+        leng = leng + 20
+
+        pointstart1 = rg.Point(pointstart3.x, pointstart3.y +delta)
+        pointend1 = rg.Point(pointstart1.x +leng, pointstart1.y)
+        if pointstart1.y > point2.y:
+            return
+        line1 = rg.Line(pointstart1, pointend1)
+        line1.thickness = 3
+        line1.color = 'magenta'
+        line1.attach_to(window)
+        window.render()
+        leng = leng + 20
     # --------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
-    # TODO (continued):  IMPORTANT: Use this ITERATIVE ENHANCEMENT PLAN:
-    # TODO (continued):    1. Make the sole VERTICAL line appear,
-    # TODO (continued):         with thickness 3.
-    # TODO (continued):    2. Make the FIRST horizontal line appear.
-    # TODO (continued):    3. Make MORE horizontal lines appear,
-    # TODO (continued):         each delta below the previous one.
-    # TODO (continued):    4. Make each successive horizontal line
-    # TODO (continued):         20 pixels longer than the previous one.
-    # TODO (continued):    5. Make the right NUMBER of horizontal lines.
-    # TODO (continued):    6. Make the horizontal lines each have thickness 3
-    # TODO (continued):         and colors per the specified pattern.
+    # Done: 2. Implement and test this function.
+    # Done (continued):  IMPORTANT: Use this ITERATIVE ENHANCEMENT PLAN:
+    # Done (continued):    1. Make the sole VERTICAL line appear,
+    # Done (continued):         with thickness 3.
+    # Done (continued):    2. Make the FIRST horizontal line appear.
+    # Done (continued):    3. Make MORE horizontal lines appear,
+    # Done (continued):         each delta below the previous one.
+    # Done (continued):    4. Make each successive horizontal line
+    # Done (continued):         20 pixels longer than the previous one.
+    # Done (continued):    5. Make the right NUMBER of horizontal lines.
+    # Done (continued):    6. Make the horizontal lines each have thickness 3
+    # Done (continued):         and colors per the specified pattern.
     #          Tests have been written for you (above).
     # --------------------------------------------------------------------------
 
